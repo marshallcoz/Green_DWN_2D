@@ -1,0 +1,59 @@
+########## del modelo #################################################################
+0.125  DFREC: frequency step  [Hertz]
+100    nFREC: number of frequencies [int]
+1024   nPts_time: n. of points in time domain output signal [int]
+10000  Q: quality factor (histeretic factor) [real]
+F	   Use Azimi's complex velocity to improve causality of the pulse [logical]
+200    nk: MAXIMUM NUMBER OF WAVENUMBER INTEGRATION POINTS [int]
+1.5	   cKbeta: wavenumber integrand runs up to fmax / (cKbeta * min(beta)) [real]
+2.0    TW: DWN OVSERVATION WINDOW in seconds [real]
+1	   periodicdamper: {1 or 2} Complex frecuency factor for DWN omega = omega - periodicdamper*PI/TW i [real]
+########### del medio estratificado ###################################################
+2   N: number of layers over half-space [int]
+H(m)    Alfa(m/s) Beta(m/s) Dens(T/m3)   [real]
+0.3     2.0     1.0     1.0
+0.3     2.0     1.0     1.0
+8888    2.0     1.0     1.0 <--- (Half space)
+########### de la incidencia ##########################################################
+1   1:P_SV  2:SH
+4   Number of sources [int]
+ X    Z  | nx   nz  |  th    l    Esca  Afn  T0   Tmax   Ts    Tp    Gsg   PWp  
+0.0  1.4   0.0  1.0    30.0   4.5   1.0   1   0.3   2.0   0.3   0.2   20.0   0         fuerza puntual vertical
+0.0  1.4   1.0  0.0    30.0   4.5   1.0   1   0.3   2.0   0.3   0.2   20.0   0         fuerza puntual horizonta
+0.0  1.4   0.0  1.0    30.0   4.5   1.0   1   0.3   2.0   0.3   0.2   20.0   1         onda SV
+0.0  1.4   0.0  1.0    30.0   4.5   1.0   1   0.3   2.0   0.3   0.2   20.0   2         onda P
+########### de los receptores #########################################################
+4  NUMBER OF SINGLE RECEIVERS (must be >=1) [int]
+1  128 NUMBER OF RECEIVER LINES AND TOTAL NUMBER OF POINTS IN LINE [int,int]  (can be 0 0)
+_____________________SINGLE RECEIVERS__________________________
+1.0  1.0  <- scale:x scale:y
+0.0  0.0  <- offset:x offset:y
+ X        Z            F
+1.3      0.29          F
+1.3      0.31          F
+1.3      0.59          F
+1.3      0.61          F
+___________________RECEIVER LINES_____________________________
+1.0  1.0  <- scale:x scale:y
+0.0  0.0  <- offset:x offset:y (vertical offset goes after fit)
+npuntos xini   deltax   zini   deltaz
+128    -2.0   0.03125    0.0     0
+FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN_FIN
+
+
+En la incidencia:
+X,Z:  posicion de la fuente [real]
+nx,nz:direccion de la fuente puntual [real]
+th :  theta of plane wave or segment source [real]
+l  :  length of segment source [real]
+Esca: Amplitude function Scale [real]
+Afn:  Amplitude function: 0 dirac; 1 ricker; 2 gaussian; 3 inAmplitude.txt [int]
+t0 :  Tiempo inicial de graficacion
+tma:  Tiempo final de graficacion
+Ts :  Ricker Ts [real] (center in seconds)
+Tp :  Ricker Tp [real] (characteristic period)
+Gsg:  Gaussian sigma as % of Fmax [real]
+PWp:  Plane wave polarization[int]: 0 point sourcce; 1 SV; 2 P; 3 SH
+
+
+The plane wave Z is set at the Half-Space interface

@@ -26,3 +26,11 @@
 *.exe
 *.out
 *.app
+
+# Toda la carpeta de salida
+out/
+
+# y otros archivos
+*.dat
+GreenDT
+GreenDT.dSY*
